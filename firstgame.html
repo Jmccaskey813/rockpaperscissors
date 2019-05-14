@@ -12,45 +12,35 @@
 
   
   <script>
- 
-    
-  function playerChoice(){
-       playerChoice =prompt ('Rock, Paper, or Scissors?');
-        playerChoice = playerChoice.toLowerCase();
-      return playerChoice;
-    
-    }
-    //playerChoice();
-    //alert('you picked '+ playerChoice)
-    
-  function compChoice(){
-      let num= Math.floor(Math.random()*100);
-        if(num<33.33){
-            compchoice= 'rock';
-        } else if (num<66.66){
-            compChoice= 'paper';
-        } else{
-            compChoice= 'scissors';
-        }
-        return compChoice;
-      }
-    //compChoice()
-   // alert('The computer picked '+ compChoice)
-    
-    
+  let userWin=0;
+  let compWin=0;  
       
-  function round(){
-    let userWin= 0;
-    let compWin= 0;
-    for(let i=0; i<=5; i++){
+function round(){
+ 
+    for(let i=0; i<=4; i++){
+      function gameOver(){
+         if ((userWin > compWin)&&(i ==4)){
+            alert ("You Won The Game!!!") 
+          }
+       else if ((userWin < compWin)&&(i==4)){
+            alert("You Lost The Game, So Sadd..")
+          }
+
+        else if ((userWin == compWin) && (i ==4)){
+          alert ('Ah, looks, like this game is a tie')
+            }
+            return gameOver;
+          }
+         gameOver()
         function playerChoice(){
-            playerChoice =prompt ('Rock, Paper, or Scissors?');
+            playerChoice = prompt ('Rock, Paper, or Scissors?');
               playerChoice = playerChoice.toLowerCase();
             return playerChoice;
           }
           playerChoice()
-        function compChoice(){
-          let num= Math.floor(Math.random()*100);
+        
+       function compChoice(){
+          let num= Math.round(Math.random()*100);
             if(num<33.33){
                 compchoice= 'rock';
             } else if (num<66.66){
@@ -60,46 +50,33 @@
             }
             return compChoice;
           }
-          compChoice()
-          alert('The computer picked '+ compChoice)
-      if ((userWin>compWin)&&(i=5)){
-            alert ("You Won The Game!!!") 
-          }
-           if ((userWin<compWin)&&(i=5)){
-            alert("You Lost The Game, So Sadd..")
-          }
-
-      if (playerChoice== compChoice){
-          alert ('Ah, looks, like its a tie')
-          compWin +=1
-          userWin +=1
-          i++
-            }
-      else if( (playerChoice == 'rock') && (compChoice == 'scissors')){
-        alert('You Win');
-        userWin +=1
-        i++
+         let autoChoice= compChoice()
+         alert('The computer picked '+ autoChoice)
+      
+       if( ((playerChoice == 'rock') && (compChoice == 'scissors')) || ((playerChoice == 'scissors') && (compChoice == 'paper')) || ((playerChoice== 'paper') && (compChoice == 'rock'))){
+        userWin +=1;
+        alert('You Win This Round!');
+       
         }
-      else if( (playerChoice == 'scissors') && (compChoice == 'paper')){
-        alert('You win!')
-        userWin +=1
-        i++
-       } else if ( (playerChoice== 'paper') && (compChoice == 'rock') ){
-        alert('You Won!')
-        userWin +=1
-        i++
-       }
+      else if (playerChoice == compChoice){
+        compWin +=1;
+        userWin+=1;
+        alert("Ah, looks like it's a tie this round")
+      }
       else {
-        alert('you lost, try again')
-        compWin +=1
-        i++
+        compWin +=1;
+        alert('you lost this round, try again')
+        
           }
-        }   
+        
+       
+        }
+
       }
     
     round()
     
-    </script>
+  
    
 
 
