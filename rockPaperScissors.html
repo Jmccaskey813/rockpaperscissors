@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Rock Paper Scissors Game</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    
+  </style>
+</head>
+<body>
+  <div> 
+    <br><br><br><br><br><br>
+  </div>
+  
+<div class= "center-text"><h1>Rock, Paper, or Scissors?</h1></div>
+
+<div class= "center-button"><button onclick="round()">LETS PLAY</button></div>
+<br><br>
+
+  
+  <script>
+
+    
+  let userWin=0;
+  let compWin=0;  
+      
+function round(){
+    for(let i=0; i<=4; i++){
+      function gameOver(){
+         if ((userWin > compWin)&&(i ==4)){
+            alert ("You Won The Game!!!") 
+          }
+       else if ((userWin < compWin)&&(i==4)){
+            alert("You Lost The Game, So Sadd..")
+          }
+
+        else if ((userWin == compWin) && (i ==4)){
+          alert ('Ah, looks, like this game is a tie')
+            }
+            return gameOver;
+          }
+         gameOver()
+        function playerChoice(){
+            playerChoice = prompt ('Rock, Paper, or Scissors?');
+              playerChoice = playerChoice.toLowerCase();
+            return playerChoice;
+          }
+          playerChoice()
+        
+       function compChoice(){
+          let num= Math.round(Math.random()*100);
+            if(num<33.33){
+                compchoice= 'rock';
+            } else if (num<66.66){
+                compChoice= 'paper';
+            } else{
+                compChoice= 'scissors';
+            }
+            return compChoice;
+          }
+         let autoChoice= compChoice()
+         alert('The computer picked '+ autoChoice)
+      
+       if( ((playerChoice == 'rock') && (compChoice == 'scissors')) || ((playerChoice == 'scissors') && (compChoice == 'paper')) || ((playerChoice== 'paper') && (compChoice == 'rock'))){
+        userWin +=1;
+        alert('You Win This Round!');
+       
+        }
+      else if (playerChoice == compChoice){
+        compWin +=1;
+        userWin+=1;
+        alert("Ah, looks like it's a tie this round")
+      }
+      else {
+        compWin +=1;
+        alert('you lost this round, try again')
+        
+          }
+        
+       
+        }
+
+      }
+    
+    
+    
+  
+   
+
+
+  </script>
+</body>
+</html>

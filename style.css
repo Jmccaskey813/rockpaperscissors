@@ -1,0 +1,14 @@
+html {
+    font-size: 10px;
+    background: url("rockpaperscissors2.jpg") bottom center;
+    background-size: cover;
+  }
+
+.center-text, .center-button {
+    text-align: center;
+    align-items: center;
+    align-content: center;
+}
+h1 {
+    color: bisque
+}
